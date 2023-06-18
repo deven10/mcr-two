@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, NavLink } from "react-router-dom";
 
+import { Home } from "./Pages/Home/Home";
+import { Archives } from "./Pages/Archives/Archives";
+
+import "./App.css";
 function App() {
+  const styles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "700" : "500",
+      textDecoration: isActive ? "underline" : "none",
+      color: "#000",
+    };
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="navlinks">
+        <NavLink style={styles} className="nav-item" to="/">
+          Home
+        </NavLink>
+        <NavLink style={styles} className="nav-item" to="/archives">
+          Archives
+        </NavLink>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/archives" element={<Archives />} />
+      </Routes>
     </div>
   );
 }
