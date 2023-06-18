@@ -4,6 +4,12 @@
   justify-content: center;
 }
 
+.note{
+  margin: 8px auto 0px auto;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .navlinks {
   display: flex;
   gap: 15px;
